@@ -1,7 +1,7 @@
 version: '3.8'
 services:
     app:
-        image: fallebr/kuis
+        image: fallebr/UAS
         container_name: php-apache
         build:
             context: ./php
@@ -20,8 +20,8 @@ services:
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: admin
-	        MYSQL_DATABASE: zadmin_desa
-        ports:
+	        MYSQL_DATABASE: zadmin_desa.sql
+            ports:
             - "3306:3306"
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
