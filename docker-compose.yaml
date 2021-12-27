@@ -9,7 +9,7 @@ services:
         depends_on:
             - db
         volumes:
-            - ./php/src:/var/www/html/ 
+            - ./php/apps warga/var/www/html/ 
         ports:
             - 8000:80
         networks:
@@ -19,14 +19,16 @@ services:
         image: mysql
         restart: always
         environment:
-            MYSQL_ROOT_PASSWORD: admin
-	        MYSQL_DATABASE: zadmin_desa.sql
-            ports:
-            - "3306:3306"
+            MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+	        MYSQL_DATABASE: MYSQL_DATABASE
+            MYSQL_USER: MYSQL_USER
+            MYSQL_PASSWORD: MYSQL_PASSWORD
+        ports:
+            - "9906:3306"
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         ports:
-            - '3060:80'
+            - '8888:80'
         restart: always
         environment:
             PMA_HOST: db
